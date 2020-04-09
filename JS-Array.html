@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+
+<style type="text/css">
+table{
+        width: 30%;
+        border-color: orangered;
+        position: fixed;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var name = $("#name").val();
+            var dept = $("#dept").val();
+            var age = $("#age").val();
+            var markup = "<tr><td><center>" + name + "</center></td><td><center>" + dept + "</center></td><td><center>" + age + "</center></td><td><center><input class='delete-row' type='button' value='Delete' name='record'></center></td></tr>";
+            $("table tbody").append(markup);
+        });
+
+
+ 			$("#mytable").on('click','.delete-row',function(){
+       			$(this).closest('tr').remove();
+    	});
+    	}); 
+		</script>
+</head>
+
+<body>
+<h2><b>Add or Delete Rows in Table</b></h2>
+
+	<form>
+  <label for="fname" style="font-size:17px;background-color: skyblue;color: black; ;border-color: black">Name:</label><input type="text" id="name" placeholder="Enter your Name.." onfocus="this.value=''" width="8%" style="background-color: lightgray">&nbsp
+  
+  <label for="dept" style="font-size:17px;background-color: lightgreen;color: black;">Department:</label><input type="text" id="dept" Placeholder="Enter your Department.." onfocus="this.value=''" width="8%" style="background-color: lightgray">&nbsp
+  
+  <label for="age" style="font-size:17px;background-color: red;color: black;">Age:</label><input type="text" id="age" placeholder="Enter your Age.." onfocus="this.value=''" width="8%" style="background-color: lightgray">
+
+  <input type="button" class="add-row" value="Add"  style="width: 60px;color: black;background-color:olive"><br><br><br>
+
+	<table id="mytable" border="1">
+		<thead>
+            <tr>
+                <th>Name</th>
+                <th>Dept</th>
+                <th>Age</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            	<td><center>Kaushi</center></td>
+            	<td><center>CSE</center></td>
+            	<td><center>21</center></td>
+                <td><center><input class="delete-row" type="button" value="Delete" name="record"></center></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
